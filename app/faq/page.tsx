@@ -1,0 +1,42 @@
+import type { Metadata } from "next"
+import { FAQ, faqItems } from "@/components/faq"
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
+
+export const metadata: Metadata = {
+  title: "FAQ",
+  description:
+    "Answers to common questions about Redbike Tech, document search for accounting firms, demos, setup, and client file workflows.",
+  alternates: {
+    canonical: "/faq",
+  },
+}
+
+export default function FAQPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+
+  return (
+    <>
+      <Header />
+      <main className="pt-20">
+        <FAQ />
+      </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replaceAll("</", "<\\/") }}
+      />
+      <Footer />
+    </>
+  )
+}
