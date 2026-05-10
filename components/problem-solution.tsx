@@ -114,7 +114,7 @@ export function ProblemSolution() {
                 </h3>
                 
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Type {"\"Why didn't John Doe get the $5 deduction in 2024?\""} into your secure dashboard and get an instant, accurate answer sourced directly from his file.
+                  Type {"\"Why was this client's vehicle expense lower in 2024 than 2023?\""} into your secure dashboard and get an instant, accurate answer sourced directly from the client file.
                 </p>
 
                 {/* Benefits */}

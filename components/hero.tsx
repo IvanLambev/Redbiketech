@@ -138,7 +138,7 @@ export function Hero() {
                 <div className="flex items-center gap-3 bg-muted/50 border border-border rounded-xl px-4 py-4">
                   <Search className="w-5 h-5 text-muted-foreground shrink-0" />
                   <span className="text-muted-foreground text-sm sm:text-base">
-                    {"\"Why didn't John Doe get the $5 deduction in 2024?\""}
+                    {"\"Why was this client's vehicle expense lower in 2024 than 2023?\""}
                   </span>
                 </div>
                 
@@ -151,10 +151,10 @@ export function Hero() {
                     <div>
                       <p className="text-sm font-medium text-foreground">Answer found in 0.3 seconds</p>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Based on John Doe&apos;s 2024 tax return (page 12), the $5 office supplies deduction was disallowed due to insufficient documentation. Receipt was not attached.
+                        The 2024 file shows $3,180 in vehicle expenses, down from $5,740 in 2023, because business mileage fell from 11,240 to 6,430 miles and no repair receipts were attached.
                       </p>
                       <div className="mt-3 inline-flex items-center gap-2 text-xs text-primary font-medium">
-                        <span className="px-2 py-1 bg-primary/10 rounded">JohnDoe_2024_Return.pdf</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded">Client_2024_Vehicle_Summary.pdf</span>
                       </div>
                     </div>
                   </div>

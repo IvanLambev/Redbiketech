@@ -5,7 +5,6 @@ import {
   ArrowRight,
   BadgeCheck,
   CalendarDays,
-  CheckCircle2,
   FolderOpen,
   LifeBuoy,
   Link2,
@@ -13,7 +12,6 @@ import {
   SearchCheck,
   ShieldCheck,
   Users,
-  XCircle,
 } from "lucide-react"
 
 import { Footer } from "@/components/footer"
@@ -54,13 +52,6 @@ const setupSteps = [
     description:
       "We help tune the workflow as your firm uses Redbike and new file-search patterns show up.",
   },
-]
-
-const notNeeded = [
-  "A folder cleanup project",
-  "A new filing system",
-  "A technical internal team",
-  "Retraining your whole firm",
 ]
 
 const setupTimeline = [
@@ -168,15 +159,18 @@ function SetupStepsSection() {
 
         <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-5 gap-5">
           {setupSteps.map((step, index) => (
-            <article key={step.title} className="relative rounded-2xl border border-border bg-card p-6">
+            <article
+              key={step.title}
+              className="group relative rounded-2xl border border-border bg-card p-6 shadow-sm shadow-foreground/5 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
+            >
               {index < setupSteps.length - 1 && (
-                <ArrowRight className="hidden xl:block absolute -right-5 top-10 z-10 h-5 w-5 text-primary" />
+                <ArrowRight className="hidden xl:block absolute -right-5 top-10 z-10 h-5 w-5 text-primary transition-transform duration-300 ease-out group-hover:translate-x-1" />
               )}
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                <step.icon className="h-5 w-5 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors duration-300 group-hover:bg-primary">
+                <step.icon className="h-5 w-5 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary-foreground" />
               </div>
-              <p className="mt-5 text-sm font-bold text-primary">0{index + 1}</p>
-              <h3 className="mt-2 text-lg font-bold text-foreground">{step.title}</h3>
+              <p className="mt-5 text-sm font-bold text-primary transition-colors duration-300 group-hover:text-primary/80">0{index + 1}</p>
+              <h3 className="mt-2 text-lg font-bold text-foreground transition-colors duration-300 group-hover:text-primary">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
             </article>
           ))}
@@ -190,31 +184,16 @@ function NoCleanupSection() {
   return (
     <section className="py-20 lg:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-center">
-          <div>
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="flex justify-center">
             <SectionEyebrow icon={FolderOpen} label="Before setup" />
-            <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-              You do not need to clean up the firm before you start
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              Most firms already have years of client folders, returns, receipts, notes, and PDFs. Redbike is meant to work with that reality instead of making cleanup a prerequisite.
-            </p>
           </div>
-
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xl shadow-foreground/5">
-            <div className="flex items-center gap-3">
-              <XCircle className="h-6 w-6 text-primary" />
-              <h3 className="text-xl font-bold text-foreground">What you do not need first</h3>
-            </div>
-            <div className="mt-6 grid sm:grid-cols-2 gap-3">
-              {notNeeded.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-xl border border-border bg-muted/30 p-4">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                  <span className="font-medium text-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+            You do not need to clean up the firm before you contact us
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg text-muted-foreground leading-relaxed">
+            Most firms already have years of client folders, returns, receipts, notes, and PDFs. Redbike is meant to work with that reality instead of making cleanup a prerequisite.
+          </p>
         </div>
       </div>
     </section>
