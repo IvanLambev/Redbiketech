@@ -152,6 +152,21 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes product-type {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes product-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes product-highlight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -162,6 +177,25 @@
 
 .animate-slide-up {
   animation: slide-up 0.6s ease-out forwards;
+}
+
+.product-type-line {
+  animation: product-type 2.2s steps(58, end) both;
+}
+
+.product-answer-reveal {
+  opacity: 0;
+  animation: product-reveal 0.55s ease-out 2.15s forwards;
+}
+
+.product-source-reveal {
+  opacity: 0;
+  animation: product-reveal 0.45s ease-out forwards;
+}
+
+.product-highlight-reveal {
+  opacity: 0;
+  animation: product-highlight 0.55s ease-out 2.8s forwards;
 }
 
 /* Staggered animation delays */
