@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { siteConfig } from '@/lib/site'
+import { getStructuredData, siteConfig } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({ 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
   title: {
-    default: 'Document Search for Accountants | Redbike Tech',
+    default: siteConfig.defaultTitle,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -28,6 +28,14 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  category: 'technology',
+  classification: 'Business software',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: '/',
   },
@@ -47,26 +55,30 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: siteConfig.name,
-    title: 'Document Search for Accountants | Redbike Tech',
+    title: siteConfig.defaultTitle,
     description: siteConfig.description,
     images: [
       {
-        url: '/redbiketech-logo.png',
-        width: 1536,
-        height: 1024,
-        alt: 'Redbike Tech logo',
+        url: siteConfig.socialImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} social preview`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Document Search for Accountants | Redbike Tech',
+    title: siteConfig.defaultTitle,
     description: siteConfig.description,
-    images: ['/redbiketech-logo.png'],
+    images: [siteConfig.twitterImage],
   },
   icons: {
-    icon: '/redbiketech-logo.png',
-    shortcut: '/redbiketech-logo.png',
+    icon: [
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon-light-32x32.png',
     apple: '/redbiketech-logo.png',
   },
 }
@@ -83,9 +95,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const structuredData = getStructuredData()
+
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable} bg-background`}>
       <body className="font-sans antialiased min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replaceAll('</', '<\\/') }}
+        />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

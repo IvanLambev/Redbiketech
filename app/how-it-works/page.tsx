@@ -1,5 +1,4 @@
 import type { ComponentType, SVGProps } from "react"
-import type { Metadata } from "next"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -17,7 +16,7 @@ import {
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
-import { siteConfig } from "@/lib/site"
+import { createPageMetadata, siteConfig } from "@/lib/site"
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>
 
@@ -77,14 +76,12 @@ const setupTimeline = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "How It Works",
   description:
     "Learn how Redbike Tech is set up for accounting firms, from discovery and secure file connection to testing, team rollout, and support.",
-  alternates: {
-    canonical: "/how-it-works",
-  },
-}
+  path: "/how-it-works",
+})
 
 export default function HowItWorksPage() {
   return (

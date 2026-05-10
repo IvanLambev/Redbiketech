@@ -1,5 +1,4 @@
 import type { ComponentType, SVGProps } from "react"
-import type { Metadata } from "next"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -22,7 +21,7 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { ProductRoiCalculator } from "@/components/product-roi-calculator"
 import { Button } from "@/components/ui/button"
-import { siteConfig } from "@/lib/site"
+import { createPageMetadata, siteConfig } from "@/lib/site"
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>
 
@@ -122,14 +121,12 @@ const productExamples = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Product",
   description:
     "Tour the Redbike product: connect accounting firm files, ask client questions, get source-backed answers, verify documents, and respond faster.",
-  alternates: {
-    canonical: "/product",
-  },
-}
+  path: "/product",
+})
 
 export default function ProductPage() {
   return (

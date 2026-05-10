@@ -1,16 +1,14 @@
-import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { createPageMetadata } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Book a Demo",
   description:
     "Book a Redbike Tech demo to see how faster client file search can reduce document hunting for your accounting firm.",
-  alternates: {
-    canonical: "/book-demo",
-  },
-}
+  path: "/book-demo",
+})
 
 export default function BookDemoPage() {
   return (

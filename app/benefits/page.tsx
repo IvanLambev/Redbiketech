@@ -1,10 +1,9 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, Brain, Clock, DollarSign, Smile, TrendingUp } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
-import { siteConfig } from "@/lib/site"
+import { createPageMetadata, siteConfig } from "@/lib/site"
 
 const benefits = [
   {
@@ -38,14 +37,12 @@ const comparison = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Benefits",
   description:
     "Redbike Tech helps accounting firms reclaim billable time, reduce document search frustration, and deliver faster client answers.",
-  alternates: {
-    canonical: "/benefits",
-  },
-}
+  path: "/benefits",
+})
 
 export default function BenefitsPage() {
   return (

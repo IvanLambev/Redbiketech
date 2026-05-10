@@ -1,16 +1,14 @@
-import type { Metadata } from "next"
 import { FAQ, faqItems } from "@/components/faq"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { createPageMetadata } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "FAQ",
   description:
     "Answers to common questions about Redbike Tech, document search for accounting firms, demos, setup, and client file workflows.",
-  alternates: {
-    canonical: "/faq",
-  },
-}
+  path: "/faq",
+})
 
 export default function FAQPage() {
   const faqJsonLd = {
