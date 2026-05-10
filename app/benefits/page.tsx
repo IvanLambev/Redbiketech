@@ -4,6 +4,7 @@ import { ArrowRight, Brain, Clock, DollarSign, Smile, TrendingUp } from "lucide-
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 const benefits = [
   {
@@ -116,7 +117,7 @@ export default function BenefitsPage() {
             </div>
             <div className="mt-10">
               <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
-                <Link href="/book-demo">
+                <Link href={siteConfig.bookingUrl}>
                   See the Workflow
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>

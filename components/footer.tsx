@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { Logo } from "@/components/logo"
+import { siteConfig } from "@/lib/site"
 
 const navigation = {
   product: [
     { name: "Product", href: "/product" },
     { name: "How It Works", href: "/how-it-works" },
     { name: "Benefits", href: "/benefits" },
-    { name: "Book a Demo", href: "/book-demo" },
+    { name: "Book a Demo", href: siteConfig.bookingUrl },
   ],
   company: [
     { name: "About Us", href: "/about" },

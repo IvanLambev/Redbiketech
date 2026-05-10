@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 const faqs = [
   {
@@ -78,7 +79,7 @@ export function FAQ() {
                 ))}
               </ul>
               <Button asChild className="mt-6 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/book-demo">
+                <Link href={siteConfig.bookingUrl}>
                   Book a Demo
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>

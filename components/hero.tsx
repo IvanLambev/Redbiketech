@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, Clock, Search, Shield, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 export function Hero() {
   const searchRef = useRef<HTMLDivElement>(null)
@@ -77,7 +78,7 @@ export function Hero() {
               size="lg"
               className="relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base shadow-xl shadow-primary/25 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1 group"
             >
-              <Link href="#contact">
+              <Link href={siteConfig.bookingUrl}>
                 Book a Free Demo
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>

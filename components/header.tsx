@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 const navigation = [
@@ -59,7 +60,7 @@ export function Header() {
               asChild
               className="relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 px-6 shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5"
             >
-              <Link href="/book-demo">
+              <Link href={siteConfig.bookingUrl}>
                 Book a Demo
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700" />
               </Link>
@@ -99,7 +100,7 @@ export function Header() {
                 asChild
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <Link href="/book-demo" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href={siteConfig.bookingUrl} onClick={() => setIsMobileMenuOpen(false)}>
                   Book a Demo
                 </Link>
               </Button>

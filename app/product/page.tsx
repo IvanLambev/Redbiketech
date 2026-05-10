@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Clock, FileSearch, FolderOpen, Shield } from 
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 const productFeatures = [
   {
@@ -66,7 +67,7 @@ export default function ProductPage() {
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
-                  <Link href="/book-demo">
+                  <Link href={siteConfig.bookingUrl}>
                     Book a Demo
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>

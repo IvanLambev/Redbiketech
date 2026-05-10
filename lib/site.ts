@@ -1,6 +1,9 @@
 export const siteConfig = {
   name: "Redbike Tech",
   url: getSiteUrl(),
+  bookingUrl: "https://calendly.com/redbiketech/30min",
+  bookingEmbedUrl:
+    "https://calendly.com/redbiketech/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c21725",
   description:
     "Secure document retrieval for accounting firms. Find client tax files, source answers, and reclaim billable time without digging through folders.",
   keywords: [

@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, MessageSquare, Search, ShieldCheck } from "lu
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 const steps = [
   {
@@ -102,7 +103,7 @@ export default function HowItWorksPage() {
                   Your team should not need to understand the machinery behind the product. They should be able to ask a client-file question and get a useful answer with source context.
                 </p>
                 <Button asChild className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
-                  <Link href="/book-demo">
+                  <Link href={siteConfig.bookingUrl}>
                     Book a Demo
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site"
 
 type MarketingPageProps = {
   eyebrow: string
@@ -20,7 +21,7 @@ export function MarketingPage({
   description,
   points,
   ctaLabel = "Book a Demo",
-  ctaHref = "/book-demo",
+  ctaHref = siteConfig.bookingUrl,
 }: MarketingPageProps) {
   return (
     <main className="pt-32">
